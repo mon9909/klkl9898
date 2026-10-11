@@ -1,0 +1,900 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Independent investment advisory, strategic consulting, and risk assessment in Saudi Arabia and regional markets.">
+  <title>Advisory & Investment | Clarity Before Capital</title>
+
+  <style>
+    :root {
+      --ink: #172630;
+      --ink-light: #263b47;
+      --cream: #f5f2eb;
+      --paper: #fffefa;
+      --bronze: #a78254;
+      --muted: #66747a;
+      --line: #dedbd3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 254, 250, 0.96);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar {
+      min-height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      display: block;
+      font: 10px Arial, sans-serif;
+      letter-spacing: 3px;
+      color: var(--bronze);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 23px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 13px;
+      color: var(--ink-light);
+    }
+
+    nav a:hover {
+      color: var(--bronze);
+    }
+
+    .nav-button, .button {
+      display: inline-block;
+      padding: 12px 21px;
+      background: var(--ink);
+      color: white;
+      border: 1px solid var(--ink);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .nav-button:hover, .button:hover {
+      background: var(--bronze);
+      border-color: var(--bronze);
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(15, 31, 42, .94), rgba(15, 31, 42, .55)),
+        linear-gradient(135deg, #344b57, #8b9a9c 55%, #d6d2c8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(255,255,255,.22);
+      transform: rotate(35deg);
+      right: 8%;
+      top: 100px;
+      box-shadow: 0 0 0 45px rgba(255,255,255,.03),
+                  0 0 0 90px rgba(255,255,255,.03);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      color: var(--bronze);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    .hero .eyebrow {
+      color: #d9b98e;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: #e0e5e6;
+      font-size: 17px;
+      margin-bottom: 32px;
+    }
+
+    .button-light {
+      display: inline-block;
+      padding: 13px 23px;
+      color: var(--ink);
+      background: var(--cream);
+      margin-right: 10px;
+      border: 1px solid var(--cream);
+    }
+
+    .button-outline {
+      display: inline-block;
+      padding: 13px 23px;
+      border: 1px solid rgba(255,255,255,.65);
+      color: white;
+    }
+
+    section {
+      padding: 100px 0;
+      scroll-margin-top: 80px;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin-bottom: 20px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .intro-panel {
+      background: var(--cream);
+      padding: 45px;
+      border-left: 3px solid var(--bronze);
+    }
+
+    .intro-panel h3 {
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .intro-panel p {
+      color: var(--muted);
+    }
+
+    .services {
+      background: var(--cream);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--paper);
+      padding: 30px;
+      border: 1px solid var(--line);
+      min-height: 240px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--bronze);
+    }
+
+    .card-number {
+      color: var(--bronze);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .approach-step {
+      padding-top: 20px;
+      border-top: 2px solid var(--bronze);
+    }
+
+    .approach-step h3 {
+      font-size: 21px;
+      margin: 15px 0 8px;
+    }
+
+    .approach-step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .markets {
+      background: var(--ink);
+      color: white;
+    }
+
+    .markets .section-heading p {
+      color: #c5ced1;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .market {
+      padding: 32px 24px;
+      border: 1px solid #52616a;
+    }
+
+    .market h3 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .market p {
+      color: #c5ced1;
+      font-size: 13px;
+    }
+
+    .sectors {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0 35px;
+    }
+
+    .sector {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 17px;
+    }
+
+    .sector span {
+      color: var(--bronze);
+      margin-right: 12px;
+    }
+
+    .insight-panel {
+      background: #e9e5dc;
+      padding: 55px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .insight-panel h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .insight-panel p {
+      color: var(--muted);
+    }
+
+    .contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 65px;
+    }
+
+    .contact-copy h2 {
+      font-size: 44px;
+      margin-bottom: 20px;
+    }
+
+    .contact-copy p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    form {
+      background: var(--paper);
+      padding: 35px;
+      border: 1px solid var(--line);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: white;
+      padding: 12px;
+      color: var(--ink);
+      border-radius: 0;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    form .button {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    #form-message {
+      margin-top: 15px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: #111e26;
+      color: white;
+      padding: 35px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      color: #c5ced1;
+      font-size: 12px;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid #34434b;
+    }
+
+    @media (max-width: 850px) {
+      .navbar {
+        padding: 18px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      .intro-grid, .contact-grid, .insight-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .approach-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+
+      .market-grid, .sectors {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 540px) {
+      section {
+        padding: 70px 0;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .card-grid, .market-grid, .sectors,
+      .form-grid, .approach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 540px;
+      }
+
+      .intro-panel, form, .insight-panel {
+        padding: 25px;
+      }
+
+      .hero::after {
+        right: -250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a class="logo" href="#home">
+      YOUR FIRM
+      <span>ADVISORY & INVESTMENT</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#markets">Markets</a>
+      <a href="#sectors">Sectors</a>
+      <a class="nav-button" href="#contact">Submit a Request</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">Independent Advisory · Riyadh, Saudi Arabia</div>
+        <h1>Clarity Before Capital.</h1>
+        <p>
+          We advise investors and businesses across complex markets
+          through strategic insight, disciplined risk assessment,
+          and trusted local expertise.
+        </p>
+        <a class="button-light" href="#services">Explore Our Services</a>
+        <a class="button-outline" href="#approach">How We Work</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container intro-grid">
+      <div>
+        <div class="eyebrow">Who We Are</div>
+        <div class="section-heading">
+          <h2>Deep expertise. Local roots. Long-term vision.</h2>
+          <p>
+            Sound decisions begin with understanding the environment,
+            challenging assumptions, and examining what lies beneath
+            the opportunity.
+          </p>
+        </div>
+      </div>
+
+      <div class="intro-panel">
+        <h3>Insight. Discipline. Long-term value.</h3>
+        <p>
+          We work with investors and businesses seeking a clearer view
+          of opportunities, risks, strategic choices, and regional
+          market conditions. Our approach combines structured analysis
+          with relevant local expertise.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">What We Do</div>
+        <h2>Advice built around the decisions that matter.</h2>
+        <p>
+          Focused advisory services designed to help clients assess
+          opportunities, understand uncertainty, and make informed decisions.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-number">01 / INVESTMENT</div>
+          <h3>Investment Advisory</h3>
+          <p>
+            Opportunity evaluation, investment screening, strategic
+            assessment, and decision support.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">02 / RISK</div>
+          <h3>Risk Assessment</h3>
+          <p>
+            Assessment of country, regulatory, financial, operational,
+            market, and partner-related risks.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">03 / MARKET ENTRY</div>
+          <h3>Market Entry Advisory</h3>
+          <p>
+            Local market assessment, entry options, stakeholder mapping,
+            and practical entry considerations.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">04 / STRATEGY</div>
+          <h3>Strategic Advisory</h3>
+          <p>
+            Strategic positioning, scenario analysis, growth options,
+            and support for complex decisions.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">05 / EXPERTISE</div>
+          <h3>Local Expert Network</h3>
+          <p>
+            Access to relevant economists, researchers, industry
+            specialists, and local market experts.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">06 / DUE DILIGENCE</div>
+          <h3>Opportunity Review</h3>
+          <p>
+            Structured review of assumptions, counterparties,
+            business fundamentals, and key decision factors.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Our Method</div>
+        <h2>We look beyond the obvious.</h2>
+        <p>
+          A disciplined process that moves from understanding a question
+          to building a clear, actionable basis for a decision.
+        </p>
+      </div>
+
+      <div class="approach-grid">
+        <div class="approach-step">
+          <div class="card-number">STEP 01</div>
+          <h3>Understand</h3>
+          <p>Define the objective, context, and decision at hand.</p>
+        </div>
+
+        <div class="approach-step">
+          <div class="card-number">STEP 02</div>
+          <h3>Challenge</h3>
+          <p>Test assumptions and identify what may be overlooked.</p>
+        </div>
+
+        <div class="approach-step">
+          <div class="card-number">STEP 03</div>
+          <h3>Assess</h3>
+          <p>Examine opportunities, risks, and possible scenarios.</p>
+        </div>
+
+        <div class="approach-step">
+          <div class="card-number">STEP 04</div>
+          <h3>Advise</h3>
+          <p>Translate findings into clear options and recommendations.</p>
+        </div>
+
+        <div class="approach-step">
+          <div class="card-number">STEP 05</div>
+          <h3>Build</h3>
+          <p>Support long-term relationships and informed execution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="markets" id="markets">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Regional Perspective</div>
+        <h2>Local understanding. Regional perspective.</h2>
+        <p>
+          Our intended regional focus includes Saudi Arabia and selected
+          Middle Eastern markets, subject to project scope and local requirements.
+        </p>
+      </div>
+
+      <div class="market-grid">
+        <article class="market">
+          <h3>Saudi Arabia</h3>
+          <p>Our base in Riyadh.</p>
+        </article>
+
+        <article class="market">
+          <h3>Oman</h3>
+          <p>Local context and opportunity assessment.</p>
+        </article>
+
+        <article class="market">
+          <h3>Kuwait</h3>
+          <p>Market context and strategic evaluation.</p>
+        </article>
+
+        <article class="market">
+          <h3>Syria</h3>
+          <p>Context-specific assessment, subject to applicable restrictions and risks.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sectors">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Sector Expertise</div>
+        <h2>Relevant knowledge for different industries.</h2>
+        <p>
+          We aim to build project teams around the sector, question,
+          and expertise each assignment requires.
+        </p>
+      </div>
+
+      <div class="sectors">
+        <div class="sector"><span>01</span> Real Estate</div>
+        <div class="sector"><span>02</span> Energy & Utilities</div>
+        <div class="sector"><span>03</span> Technology</div>
+        <div class="sector"><span>04</span> Healthcare</div>
+        <div class="sector"><span>05</span> Tourism & Hospitality</div>
+        <div class="sector"><span>06</span> Logistics & Industry</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="insight-panel">
+        <div>
+          <div class="eyebrow">Our Perspective</div>
+          <h2>Before asking why to invest, ask what could go wrong.</h2>
+        </div>
+        <p>
+          Strong decisions require more than an attractive opportunity.
+          They require a clear understanding of assumptions, constraints,
+          uncertainties, and the conditions needed for success.
+          <br><br>
+          Our work is designed to help decision-makers ask better
+          questions before committing resources.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+        <div class="eyebrow">Start a Conversation</div>
+        <h2>Tell us what you are considering.</h2>
+        <p>
+          Submit an inquiry or outline a project requirement.
+          We will review the information provided and determine
+          the appropriate next steps.
+        </p>
+        <p><strong>Riyadh, Saudi Arabia</strong></p>
+        <p>
+          Please avoid including confidential information or sensitive
+          personal data in this initial form.
+        </p>
+      </div>
+
+      <form id="request-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Full Name *</label>
+            <input id="name" name="name" required>
+          </div>
+
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company">
+          </div>
+
+          <div class="field">
+            <label for="email">Business Email *</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+
+          <div class="field">
+            <label for="request-type">Request Type *</label>
+            <select id="request-type" name="requestType" required>
+              <option value="">Select an option</option>
+              <option>Investment Advisory</option>
+              <option>Risk Assessment</option>
+              <option>Market Entry</option>
+              <option>Strategic Advisory</option>
+              <option>Local Expert Network</option>
+              <option>Other Inquiry</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="market">Market</label>
+            <select id="market" name="market">
+              <option value="">Select a market</option>
+              <option>Saudi Arabia</option>
+              <option>Oman</option>
+              <option>Kuwait</option>
+              <option>Syria</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="sector">Sector</label>
+            <select id="sector" name="sector">
+              <option value="">Select a sector</option>
+              <option>Real Estate</option>
+              <option>Energy & Utilities</option>
+              <option>Technology</option>
+              <option>Healthcare</option>
+              <option>Tourism & Hospitality</option>
+              <option>Logistics & Industry</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="message">How can we help? *</label>
+            <textarea id="message" name="message"
+              placeholder="Briefly describe your inquiry..."
+              required></textarea>
+          </div>
+        </div>
+
+        <button class="button" type="submit">Submit Request</button>
+        <p id="form-message" role="status">
+          Demo form: submissions are not sent until a form service is connected.
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="logo" href="#home">
+        YOUR FIRM
+        <span>ADVISORY & INVESTMENT</span>
+      </a>
+      <p>Riyadh, Saudi Arabia</p>
+      <a href="#contact">Submit a Request ↗</a>
+    </div>
+
+    <div class="footer-note">
+      <p>
+        The information on this website is for general informational
+        purposes only and does not constitute an offer, financial
+        promotion, or personalized investment advice. Services are
+        subject to applicable laws, regulatory requirements, and
+        any required licensing.
+      </p>
+      <p style="margin-top:12px">
+        © <span id="year"></span> YOUR FIRM. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  document.getElementById("request-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("form-message").textContent =
+      "This demo form is not connected to a submission service yet. Please connect a form provider before publishing.";
+  });
+</script>
+
+</body>
+</html>
+```
